@@ -30,13 +30,9 @@ public class MySQLRepository {
 		Connection conn = null;
 		Statement stmt = null;
 		String query = "select * from user where user_id ='" + userId + "'";
-		System.out.println(query);
 
 		try {
-			System.out.println("dbHost" + dbHost);
-			System.out.println("dbUser" + dbUser);
-			System.out.println("dbPwd" + dbPwd);
-
+			
 			conn = DriverManager.getConnection(dbHost, dbUser, dbPwd);
 			stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
@@ -67,13 +63,9 @@ public class MySQLRepository {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		String query = "select * from user where user_id =?";
-		System.out.println(query);
 
 		try {
-			System.out.println("dbHost" + dbHost);
-			System.out.println("dbUser" + dbUser);
-			System.out.println("dbPwd" + dbPwd);
-
+			
 			conn = DriverManager.getConnection(dbHost, dbUser, dbPwd);
 			stmt = conn.prepareStatement(query);
 			stmt.setString(1, userId);
